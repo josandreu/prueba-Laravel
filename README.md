@@ -17,3 +17,7 @@ Autentificación:
 Datos en la bbdd, en el fichero 'env', después para crear las tablas:
 - php artisan migrate:install
 - php artisan migrate
+
+Para crear fichero en migration y después crear tabla alumnos:
+- php artisan make:migration alumnos --table=alumnos
+
