@@ -15,6 +15,14 @@
 Route::any('/', function () {
     return view('welcome');
 });
+
+// esta ruta es para el botón que está en principal, que pone 'Volver POST'
+/* NO nos hace falta, porque hemos puesto ::any en la ruta superior para '/'
+Route::post('/', function (){
+    return view('welcome');
+});
+*/
+
 // mejor match que any
 Route::match(['get', 'post'],'principal', function() {
     return view('main');
@@ -50,12 +58,17 @@ Route::get('noticias/{var}', function ($var){
     return "<h1>Estoy accediendo a noticias $var</h1>";
 })->where('var', '[a-zA-Z]+');
 
+// Controller: Acciones, method: aleatorio
+// creamos un middleware para que solo se pueda acceder si estamos autentificados
+Route::get('valor', 'Acciones@aleatorio')->middleware('auth');
 
-
-// esta ruta es para el botón que está en principal, que pone 'Volver POST'
-/*
-Route::post('/', function (){
-    return view('welcome');
+/* Esta ruta, es lo equivalente a la ruta superior, pero sin utilizar un controlador
+Route::get('valor', function (){
+    $a = random_int(1, 100);
+    return view('valor', ['valor' => $a, 'nombre' => 'Jose']);
 });
 */
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -26,15 +26,15 @@
     <nav class="menu">
         @yield('menu_superior')
     </nav>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-8">
-                <div class="central">
+                <div class="central p-3">
                     @yield('contenido_central')
                 </div>
             </div>
             <div class="col-4">
-                <div class="derecha">
+                <div class="derecha p-3">
                     @yield('contenido_derecha')
                 </div>
             </div>
@@ -42,7 +42,7 @@
     </div>
     <footer>
         <div class="container-fluid">
-            <h4 class="font-weight-bold mt-3 text-center">JosAndreu ©</h4>
+            <h5 class="font-weight-bold mt-3 text-center"><a href="https://josandreu.com" target="_blank">JosAndreu 2019©</a></h5>
         </div>
     </footer>
 </body>
