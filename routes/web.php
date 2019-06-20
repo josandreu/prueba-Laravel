@@ -69,6 +69,13 @@ Route::get('valor', function (){
 });
 */
 
+// generado automáticamente al activar la autentificacion
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// para mostrar la tabla alumnos en la vista http://localhost:8000/alumnos
+// controller: C_Alumnos, method: mostrar
+// App\Http\Controllers
+// php artisan make:Controller C_Alumnos
+Route::get('alumnos', 'C_Alumnos@mostrar');

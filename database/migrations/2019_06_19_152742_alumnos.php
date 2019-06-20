@@ -13,8 +13,12 @@ class Alumnos extends Migration
      */
     public function up()
     {
-        Schema::table('alumnos', function (Blueprint $table) {
-            //
+        Schema::create('alumnos', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('edad');
+            $table->string('nombre');
+            $table->string('email')->unique();
+            $table->string('direccion');
         });
     }
 
@@ -25,8 +29,7 @@ class Alumnos extends Migration
      */
     public function down()
     {
-        Schema::table('alumnos', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('alumnos');
+
     }
 }
